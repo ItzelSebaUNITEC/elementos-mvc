@@ -4,13 +4,11 @@
  * and open the template in the editor.
  */
 package unitec.elementosmvc;
-
+import org.springframework.data.mongodb.repository.MongoRepository;
 /**
  *
  * @author Guest
  */
-public interface Tarjeta {
-    
-    public void ObtenerSaldo ();
+public interface RepositorioMensaje extends MongoRepository<Mensaje,String> {
     
 }

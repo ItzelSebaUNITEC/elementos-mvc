@@ -9,8 +9,11 @@ package unitec.elementosmvc;
  *
  * @author Guest
  */
-public interface Tarjeta {
+public class Credito implements Tarjeta {
+    @Override
+    public void ObtenerSaldo(){
+        System.out.println("Tu saldo es de 40,000");
+    }
     
-    public void ObtenerSaldo ();
     
 }

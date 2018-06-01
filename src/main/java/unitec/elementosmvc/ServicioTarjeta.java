@@ -4,13 +4,15 @@
  * and open the template in the editor.
  */
 package unitec.elementosmvc;
-
+import org.springframework.context.annotation.Configuration;
 /**
  *
  * @author Guest
  */
-public interface Tarjeta {
+@Configuration
+public class ServicioTarjeta {
     
-    public void ObtenerSaldo ();
-    
+    Tarjeta ObtenerSaldo(){
+        return new Credito();
+    }
 }

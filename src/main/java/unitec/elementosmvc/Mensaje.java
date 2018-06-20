@@ -34,7 +34,6 @@ public class Mensaje {
     public Mensaje(){}
 
     Mensaje(String cuerpo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     public String getId (){
@@ -61,7 +60,7 @@ public class Mensaje {
         this.cuerpo=cuerpo;
     }
     @Override
-    public String toString() {
+    public String toString() {//probar rapidamente si se guarda
         return "Mensaje{" + "id=" + id + ", fecha=" + fecha + ", cuerpo=" + cuerpo + '}';
     }
    

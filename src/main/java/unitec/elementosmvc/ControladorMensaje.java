@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -51,6 +52,28 @@ public List<Mensaje> buscarTodos(){
         estatus.setMensaje("true");
         estatus.setMensaje("mensaje guardado con exito!!!");
         return estatus;
-    }
+        
+        
+        /*caso d) actualizar
+        ObjectMapper mapper=new ObjectMapper();
+   Mensaje mensa =mapper.readValue(json, Mensaje.class);// para que no nos marque error debemos poner un "throws"
+       System.out.println("este mensaje se convirtio"+mensa);
+       repoMensa.save(mensa);
+        Estatus estatus=new Estatus();
+        estatus.setMensaje("true");
+        estatus.setMensaje("mensaje guardado con exito!!!");
+        return estatus;
+    }*/
 
+}
+//caso e)borrar
+@DeleteMapping("/mensaje/{id}")
+public Estatus borrarPorId(@PathVariable String id){
+Mensaje mensa=new Mensaje();
+
+repoMensa.deleteById(id);
+Estatus e=new Estatus();
+e.setMensaje("mensaje borrado con exito");
+return e;
+}
 }

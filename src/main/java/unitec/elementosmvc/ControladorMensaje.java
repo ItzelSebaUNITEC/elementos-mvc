@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -50,22 +51,26 @@ public List<Mensaje> buscarTodos(){
        repoMensa.save(mensa);
         Estatus estatus=new Estatus();
         estatus.setMensaje("true");
-        estatus.setMensaje("mensaje guardado con exito!!!");
+        estatus.setMensaje("mensaje guardado exitosamente!!!");
         return estatus;
         
-        
-        /*caso d) actualizar
-        ObjectMapper mapper=new ObjectMapper();
-   Mensaje mensa =mapper.readValue(json, Mensaje.class);// para que no nos marque error debemos poner un "throws"
-       System.out.println("este mensaje se convirtio"+mensa);
+        }
+        //caso d) actualizar
+        @PutMapping("/mensaje")
+                public Estatus actualizar(@RequestBody String json)throws Exception{
+        //Primero convertimos este string json a un objeto java
+        ObjectMapper maper=new ObjectMapper();
+   Mensaje mensa = maper.readValue(json, Mensaje.class);// para que no nos marque error debemos poner un "throws"
        repoMensa.save(mensa);
+   System.out.println("este objeto se convirtio"+mensa);
+       
         Estatus estatus=new Estatus();
-        estatus.setMensaje("true");
-        estatus.setMensaje("mensaje guardado con exito!!!");
+        estatus.setSuccess(true);
+        estatus.setMensaje("mensaje guardado exitosamente!!!");
         return estatus;
-    }*/
+    }
 
-}
+
 //caso e)borrar
 @DeleteMapping("/mensaje/{id}")
 public Estatus borrarPorId(@PathVariable String id){
@@ -73,7 +78,7 @@ Mensaje mensa=new Mensaje();
 
 repoMensa.deleteById(id);
 Estatus e=new Estatus();
-e.setMensaje("mensaje borrado con exito");
+e.setMensaje("mensaje borrado exitosamente!!!");
 return e;
 }
 }

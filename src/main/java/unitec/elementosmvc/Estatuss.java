@@ -9,10 +9,9 @@ package unitec.elementosmvc;
  *
  * @author T-107
  */
-public class Estatus {
-    
-    private boolean success;
-    private String mensaje;
+public class Estatuss {
+     private boolean success;
+    private String cliente;
     
     
 
@@ -25,16 +24,11 @@ public class Estatus {
     }
 
     public String getMensaje() {
-        return mensaje;
+        return cliente;
     }
 
     public void setMensaje(String mensaje) {
-        this.mensaje = mensaje;
+        this.cliente = cliente;
     }
-
-    void setCliente(String cliente_borrado_exitosamente) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
     
 }

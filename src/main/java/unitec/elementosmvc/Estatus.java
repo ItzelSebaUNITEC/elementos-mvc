@@ -32,9 +32,7 @@ public class Estatus {
         this.mensaje = mensaje;
     }
 
-    void setCliente(String cliente_borrado_exitosamente) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
     
     
 }
